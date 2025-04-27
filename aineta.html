@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <title>Aina sóc la teva Fan Número 1</title>
+    <style>
+        body {
+            background-color: #FFC0CB;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            overflow: hidden;
+            margin: 0;
+            height: 100vh;
+            color: #800080;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-top: 80px;
+        }
+
+        button {
+            background-color: #FF69B4;
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            font-size: 1.2em;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #FF1493;
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: red;
+            transform: rotate(45deg);
+            animation: float 6s infinite;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: red;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: -10px;
+            top: 0;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(45deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-800px) rotate(45deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Aina, sóc la teva fan número 1 💖</h1>
+
+    <button onclick="alert('vaya fan fent click')">Fes click si t'agrado!</button>
+    <button onclick="alert('un altre cop? joder si q ho ets de fan')">fes click si vols que els pekes tinguin el peluix del gos del zara home!</button>
+    <button onclick="window.location.href='https://www.tiktok.com/@girlsondiscover/video/7492117849272634646'">Ves a Tktk per veure el q et vas perdre ahir pk ets una pringada</button>
+
+    <!-- Música -->
+    <audio autoplay loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Corazones flotando -->
+    <script>
+        function crearCorazon() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.animationDuration = (5 + Math.random() * 3) + "s";
+            document.body.appendChild(heart);
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+
+        setInterval(crearCorazon, 300);
+    </script>
+
+</body>
+</html>
